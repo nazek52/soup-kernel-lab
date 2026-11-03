@@ -64,6 +64,11 @@ SwiGLU из официального starter сохранён с атрибуц�
 
 ## Проверки
 
+[GitHub CI: успешно](https://github.com/nazek52/soup-kernel-lab/actions/runs/41710054016).
+20 CPU-тестов прошли; отдельно 10 тестов Triton interpreter прошли.
+20 CUDA-тестов не запускались.
+
+
 ```bash
 python -m soup_lab doctor
 python -m pytest solution dev_tests -q
@@ -98,7 +103,13 @@ URL этого репозитория уже задан. Notebook устанав
 
 Используется только одна T4. Приватные ключи не нужны для этого публичного репозитория.
 Необязательный HF_TOKEN задаётся через Kaggle Secrets.
-**Публичная Kaggle-версия пока не опубликована: нужен вход в аккаунт Kaggle и GPU-прогон.**
+CPU-версия успешно выполнена на Kaggle (24.6 секунды):
+https://www.kaggle.com/code/loolaey/soup-kernel-lab-cpu-demo?scriptVersionId=365396899
+
+Kaggle-версия приватная: сервис требует телефон для публичного доступа;
+по выбору владельца проверка телефона не выполнялась.
+[Скачанный выполненный notebook с настоящими outputs](notebooks/kaggle_cpu_demo_executed.ipynb)
+доступен публично в этом репозитории. Он не заменяет полный T4-бенчмарк.
 
 Linux с T4:
 
@@ -116,6 +127,14 @@ python -m soup_lab benchmark
 | Качество адаптера | Не измерено |
 | Доля собственных ядер ≥5% | Не измерена |
 | 10 официальных проверок | Не запускались |
+
+## Готовые материалы
+
+- [Презентация PowerPoint, 6 слайдов](artifacts/Soup_Kernel_Lab.pptx)
+- [Демо-видео с русской озвучкой, 2:39](artifacts/Soup_Kernel_Lab_Demo.mp4)
+- [HTML-демо: скачайте и откройте](artifacts/CPU_Demo.html)
+- [Результаты Kaggle в JSON](evidence/kaggle-cpu-result.json)
+- [Выполненный CPU notebook](notebooks/kaggle_cpu_demo_executed.ipynb)
 
 ## Материалы и объяснение
 

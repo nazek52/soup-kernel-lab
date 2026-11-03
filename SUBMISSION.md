@@ -1,23 +1,26 @@
-# Submission: Soup RMSNorm + tiled cross-entropy candidate
+# Soup Kernel Lab — описание проекта
 
-**DRAFT / NOT SUBMITTED / NOT GPU-VALIDATED**
+Самостоятельный проект. Не зарегистрирован как команда и не подан на конкурс.
+Создан 4 ноября 2026, после указанного в FAQ дедлайна. GPU-проверка не выполнена.
 
-Prepared on 2026-11-04, after the stated 2026-10-31 deadline. No extension is confirmed.
+## Материалы
 
-## Links
+- Репозиторий: https://github.com/nazek52/soup-kernel-lab
+- Проверенная CI версия кода: `8d63b2445d68c909758679262d8bb10c8ae7d8ed`.
+- Владелец: [nazek52](https://github.com/nazek52), Kaggle: loolaey.
+- Kaggle CPU, успешный сохранённый запуск: https://www.kaggle.com/code/loolaey/soup-kernel-lab-cpu-demo?scriptVersionId=365396899
+- Kaggle требует телефон для Public; владелец выбрал работу без проверки телефона.
+- Публичная копия с outputs: [выполненный notebook](notebooks/kaggle_cpu_demo_executed.ipynb).
+- [Демо-видео, 2:39](artifacts/Soup_Kernel_Lab_Demo.mp4), русская синтетическая озвучка.
+- [Презентация PowerPoint](artifacts/Soup_Kernel_Lab.pptx), 6 редактируемых слайдов.
+- [JSON результата Kaggle](evidence/kaggle-cpu-result.json).
 
-- Repository, final solution commit: PENDING
-- Public Kaggle notebook, saved version with COMMIT set to the solution SHA: PENDING
-- Demo video, no more than 3 minutes: PENDING
-- Presentation: PENDING
+## Подтверждённые проверки
 
-Add the saved Kaggle URL to README too. Fill submission.json for the completeness checker.
-
-## Team (up to 4 people)
-
-| Name | Role | GitHub | Kaggle | Contact (captain) |
-|---|---|---|---|---|
-| PENDING | PENDING | PENDING | PENDING | PENDING |
+GitHub Actions: 20 CPU-тестов и 10 Triton interpreter тестов прошли.
+Kaggle CPU: 3 из 3 сравнений loss и градиентов прошли; Python 3.13.18,
+PyTorch 2.11.0+cpu, seed 2026. Это проверка математического прототипа.
+CUDA-компиляция, полное обучение и требования официального harness не проверены.
 
 ## Our kernels
 
@@ -45,13 +48,9 @@ No third-party kernel library is used.
 
 - [ ] All 10 official checks passed on the submitted code and saved Kaggle version.
 - [x] README describes implementation, setup, limitations and missing measurements.
-- [ ] Public notebook URL added to both README and SUBMISSION.
-- [ ] Team, final commit, presentation and demo links supplied.
-
-## Presentation
-
-Outline: docs/PRESENTATION_OUTLINE_RU.md. Recording script: docs/DEMO_SCRIPT_RU.md.
-These are preparation documents, not a finished presentation or video.
+- [x] Сохранённый CPU notebook и его ограничение доступа описаны в README и SUBMISSION.
+- [x] Репозиторий, проверенный commit, презентация и демо доступны.
+- [ ] Официальная регистрация команды и конкурсная сдача (не выполнялись).
 
 ## Limitations
 

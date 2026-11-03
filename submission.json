@@ -1,8 +1,12 @@
 {
+  "status": "standalone_project_not_competition_submission",
   "team": [],
-  "repository_url": "",
-  "solution_commit": "",
-  "kaggle_saved_version_url": "",
-  "video_url": "",
-  "presentation_url": ""
+  "owner_github": "nazek52",
+  "repository_url": "https://github.com/nazek52/soup-kernel-lab",
+  "solution_commit": "8d63b2445d68c909758679262d8bb10c8ae7d8ed",
+  "kaggle_saved_version_url": "https://www.kaggle.com/code/loolaey/soup-kernel-lab-cpu-demo?scriptVersionId=365396899",
+  "kaggle_visibility": "private_phone_verification_declined",
+  "kaggle_scope": "CPU mathematical reference only",
+  "video_url": "https://github.com/nazek52/soup-kernel-lab/blob/main/artifacts/Soup_Kernel_Lab_Demo.mp4",
+  "presentation_url": "https://github.com/nazek52/soup-kernel-lab/blob/main/artifacts/Soup_Kernel_Lab.pptx"
 }

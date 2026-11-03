@@ -1,30 +1,44 @@
-# Validation record
+# Фактическая проверка
 
-Date: 2026-11-04. Host: Windows, Python 3.12, torch 2.15.0+cpu.
+Дата: 4 ноября 2026, Казахстан.
 
-## Executed locally
+## GitHub Actions
 
-- `python -m pytest solution -q`: **18 passed, 20 skipped**.
-- The skipped cases require CUDA, including the official SwiGLU tests.
-- CPU cases cover the fallback loss and gradient, ignored labels, irregular shapes,
-  frozen/trainable norm weights and invalid labels.
-- Ruff check of new solution modules: passed.
-- Official source analyzer: five original kernels detected; both starter SwiGLU kernels
-  correctly excluded. No close rewrites, banned imports or syntax errors reported.
-- `harness/`, `task/`, `tests/`: no differences from the starter commit.
-- All six executable notebook cells parsed as Python; outputs remain empty.
-- Submission completeness checker reports INCOMPLETE as expected (missing links/results).
+https://github.com/nazek52/soup-kernel-lab/actions/runs/41710054016
+Код: 8d63b2445d68c909758679262d8bb10c8ae7d8ed.
+Ubuntu 24.04, Python 3.12.16, torch 2.8.0+cpu, triton 3.4.0.
+- Ruff: PASS.
+- pytest solution dev_tests: 20 passed, 30 skipped (20 CUDA, 10 interpreter).
+- TRITON_INTERPRET=1 pytest dev_tests/test_interpreter.py: 10 passed.
+- CPU HTML/JSON report: создан; workflow artifact cpu-demonstration.
 
-These are CPU fallback tests, not execution of the Triton kernels. PyTorch emitted a warning
-about optional NumPy being absent; it did not affect these tensor-only tests.
+Интерпретатор выполняет настоящие тела собственных ядер, проверяет арифметику
+и индексы. Он не проверяет CUDA-компиляцию, асинхронное выполнение или скорость.
 
-## Not executed
+## Локальный запуск
 
-- Triton compilation and GPU forward/backward tests.
-- Official 64-step training, held-out evaluation and 79 Soup regression tests.
-- Own-kernel time share and all ten official checks.
-- Performance measurements on Kaggle T4.
+Windows, Python 3.12.14, torch 2.15.0+cpu. 20 passed, 30 skipped.
+Демо seed2026: 3/3 численных сравнения прошли. Числа: evidence/local-cpu-result.json.
+Презентация и видео показывают именно локальные числа.
 
-No GPU speed, memory, quality or competition score is claimed. Source comparison against
-starter commit c7c2fcd15972ce8b898d8d3ff732ee192c817ceb must leave task/, harness/ and tests/
-unchanged. The repository is a candidate awaiting GPU validation and publication details.
+## Kaggle
+
+https://www.kaggle.com/code/loolaey/soup-kernel-lab-cpu-demo?scriptVersionId=365396899
+Save & Run All: successful, 24.6 секунды. Python3.13.18, torch2.11.0+cpu.
+3/3 сравнений loss и градиентов прошли; evidence/kaggle-cpu-result.json.
+Настоящий скачанный notebook с outputs: notebooks/kaggle_cpu_demo_executed.ipynb.
+Kaggle требует телефон для Public и GPU. По выбору владельца телефон не проверяли.
+Ноутбук остался приватным, его копия с outputs опубликована на GitHub.
+
+## Материалы
+
+PowerPoint: 6 слайдов, структура/геометрия/шрифты/повторный импорт прошли,
+все слайды визуально проверены. Видео1280×720, H.264/AAC,158.9секунды,
+синтетическая русская озвучка, полный файл успешно декодирован ffmpeg.
+
+## Непроверенное
+
+T4 CUDA-тесты; скорость и память полного обучения; качество адаптера;
+10 официальных правил и доля собственных ядер≥5%. Эти результаты не заявлены.
+`scripts/check_submission.py` намеренно остаётся строгой проверкой конкурсной
+комплектности и выдаёт INCOMPLETE без команды/официальных GPU-результатов.

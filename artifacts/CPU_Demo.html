@@ -1,0 +1,39 @@
+<!doctype html><html lang="ru"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soup Kernel Lab — проверка вычислений</title>
+<style>
+:root { color-scheme:light; font-family:Segoe UI,Arial,sans-serif; color:#172837; background:#f5f4ef; }
+body { margin:0; } main { max-width:1100px; margin:auto; padding:64px 32px; }
+h1 { font-size:clamp(36px,5vw,64px); letter-spacing:-2px; margin:16px 0; }
+h2 { font-size:28px; margin-top:48px; } p { line-height:1.65; max-width:850px; font-size:18px; }
+.eyebrow { color:#426e61; letter-spacing:3px; font-size:13px; font-weight:700; }
+.lead { font-size:22px; } .table-wrap { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; margin:28px 0; background:white; }
+td,th { text-align:left; padding:18px 16px; border-bottom:1px solid #d6ded8; }
+th { font-size:13px; color:#426e61; } td { font-variant-numeric:tabular-nums; }
+code { font-family:Consolas,monospace; } .muted { color:#5e6b71; font-size:15px; }
+a { color:#246452; } details { padding:20px 0; border-top:1px solid #bdccc4; }
+</style><main>
+<div class="eyebrow">SOUP KERNEL LAB / NUMERICAL EXPERIMENT</div>
+<h1>Тот же loss.<br>Вычисление по блокам.</h1>
+<p class="lead">Реальные результаты небольшой проверки cross-entropy на CPU.
+Сравниваем формулу по блокам словаря с PyTorch, включая градиенты.</p>
+<p><strong>3 из 3 сравнений прошли.</strong> Это проверка математического прототипа.
+Triton-ядра и полное обучение Soup проверяются отдельно.</p>
+<h2>Измеренная численная ошибка</h2><div class="table-wrap"><table>
+<thead><tr><th>Словарь</th><th>PyTorch loss</th><th>По блокам</th><th>Ошибка loss</th>
+<th>Макс. ошибка градиента</th><th>Статус</th></tr></thead><tbody><tr><td>257</td><td>6.2906103</td><td>6.2906103</td><td>0.00e+00</td><td>2.79e-09</td><td>PASS</td></tr><tr><td>4099</td><td>8.4634018</td><td>8.4634027</td><td>9.54e-07</td><td>6.98e-10</td><td>PASS</td></tr><tr><td>151936</td><td>11.6919756</td><td>11.6919756</td><td>0.00e+00</td><td>4.73e-11</td><td>PASS</td></tr></tbody></table></div>
+<h2>Что делает алгоритм</h2>
+<p>Каждый блок из 4096 классов вычисляет log-sum-exp. Второе сокращение объединяет
+блоки строки. Затем вычитается logit целевого класса. При обратном проходе градиент
+равен вероятности softmax минус индикатор правильного класса.</p>
+<details open><summary>Граница доказательства</summary><p>Здесь нет замера ускорения GPU,
+потребления VRAM или качества адаптера. Полный конкурсный запуск использует фиксированную
+Qwen2.5-1.5B-Instruct, Kaggle T4 и неизменённый официальный harness.</p></details>
+<h2>Следующая проверка</h2><p><code>python -m soup_lab gpu-test</code> проверит CUDA-ядра.
+<code>python -m soup_lab benchmark</code> выполнит официальный эксперимент на T4.</p>
+<p><a href="https://github.com/nazek52/soup-kernel-lab">Исходный код и Kaggle notebook</a>
+ · <a href="result.json">JSON с результатами</a></p>
+<p class="muted">Seed 2026 · Python 3.12.14 ·
+PyTorch 2.15.0+cpu<br>2026-11-03T20:09:48.924528+00:00</p>
+</main></html>

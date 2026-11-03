@@ -1,0 +1,38 @@
+{
+  "scope": "CPU PyTorch mathematical reference, not Triton or full Soup training",
+  "created_utc": "2026-11-03T20:20:40.254359+00:00",
+  "seed": 2026,
+  "python": "3.13.18",
+  "torch": "2.11.0+cpu",
+  "cases": [
+    {
+      "vocabulary": 257,
+      "rows": 8,
+      "reference_loss": 6.290610313415527,
+      "tiled_loss": 6.290610313415527,
+      "loss_abs_error": 0.0,
+      "gradient_max_abs_error": 4.6566128730773926e-09,
+      "passed": true
+    },
+    {
+      "vocabulary": 4099,
+      "rows": 8,
+      "reference_loss": 8.463403701782227,
+      "tiled_loss": 8.46340274810791,
+      "loss_abs_error": 9.5367431640625e-07,
+      "gradient_max_abs_error": 6.984919309616089e-10,
+      "passed": true
+    },
+    {
+      "vocabulary": 151936,
+      "rows": 8,
+      "reference_loss": 11.691975593566895,
+      "tiled_loss": 11.691975593566895,
+      "loss_abs_error": 0.0,
+      "gradient_max_abs_error": 4.729372449219227e-11,
+      "passed": true
+    }
+  ],
+  "gpu_benchmark": "not run",
+  "official_checks": "not run"
+}
