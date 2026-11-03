@@ -1,0 +1,8 @@
+# Official starter versions, installed before the measured run. Python 3.11/3.12, Linux CUDA.
+soup-cli[train]==0.77.0
+transformers==5.16.1
+peft==0.20.0
+trl==0.29.1
+bitsandbytes==0.50.2
+accelerate==1.14.0
+pytest>=8,<10
