@@ -1,14 +1,20 @@
-# Soup Kernel Lab
+<a id="soup-kernel-lab"></a>
 
-[![Correctness](https://github.com/nazek52/soup-kernel-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/nazek52/soup-kernel-lab/actions/workflows/ci.yml)
+<p>
+  <img src="docs/assets/project-header.svg" alt="Soup Kernel Lab — Training kernels. Measured correctness." width="100%">
+</p>
 
-Самостоятельный проект по оптимизации обучения языковой модели:
-**собственные Triton-ядра RMSNorm и cross-entropy**, сравнение значений и градиентов,
-CPU-демонстрация с HTML/JSON-отчётом и готовый notebook для официального Soup benchmark.
+[![Checks](https://github.com/nazek52/soup-kernel-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/nazek52/soup-kernel-lab/actions/workflows/ci.yml)
 
-Репозиторий: **https://github.com/nazek52/soup-kernel-lab**.
-Проект не зарегистрирован как конкурсная команда и не является поданной заявкой.
-GPU-производительность и качество полного обучения ещё не измерены.
+Самостоятельный проект по оптимизации обучения языковой модели: собственные Triton-ядра **RMSNorm и cross-entropy**, проверка значений и градиентов, воспроизводимая CPU-демонстрация и notebook для полного Soup benchmark.
+
+CPU-демо и проверки арифметики доступны в репозитории. GPU-производительность и качество полного обучения пока не измерены; конкурсная подача не заявляется.
+
+**Python · PyTorch · Triton · numerical validation**
+
+[Демо](#запустить-демо-за-несколько-команд) · [Устройство проекта](docs/START_HERE_RU.md) · [Проверки](docs/VALIDATION.md) · [Notebook](notebooks/kaggle_cpu_demo_executed.ipynb)
+
+---
 
 ## Запустить демо за несколько команд
 
